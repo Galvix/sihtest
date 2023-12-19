@@ -6,13 +6,12 @@ import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class FitnessdataRecord extends FirestoreRecord {
   FitnessdataRecord._(
-    DocumentReference reference,
-    Map<String, dynamic> data,
-  ) : super(reference, data) {
+    super.reference,
+    super.data,
+  ) {
     _initializeFields();
   }
 
@@ -31,10 +30,22 @@ class FitnessdataRecord extends FirestoreRecord {
   int get height => _height ?? 0;
   bool hasHeight() => _height != null;
 
+  // "steps" field.
+  int? _steps;
+  int get steps => _steps ?? 0;
+  bool hasSteps() => _steps != null;
+
+  // "calories" field.
+  double? _calories;
+  double get calories => _calories ?? 0.0;
+  bool hasCalories() => _calories != null;
+
   void _initializeFields() {
     _userID = snapshotData['userID'] as DocumentReference?;
     _weight = castToType<double>(snapshotData['weight']);
     _height = castToType<int>(snapshotData['height']);
+    _steps = castToType<int>(snapshotData['steps']);
+    _calories = castToType<double>(snapshotData['calories']);
   }
 
   static CollectionReference get collection =>
@@ -75,12 +86,16 @@ Map<String, dynamic> createFitnessdataRecordData({
   DocumentReference? userID,
   double? weight,
   int? height,
+  int? steps,
+  double? calories,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'userID': userID,
       'weight': weight,
       'height': height,
+      'steps': steps,
+      'calories': calories,
     }.withoutNulls,
   );
 
@@ -94,12 +109,14 @@ class FitnessdataRecordDocumentEquality implements Equality<FitnessdataRecord> {
   bool equals(FitnessdataRecord? e1, FitnessdataRecord? e2) {
     return e1?.userID == e2?.userID &&
         e1?.weight == e2?.weight &&
-        e1?.height == e2?.height;
+        e1?.height == e2?.height &&
+        e1?.steps == e2?.steps &&
+        e1?.calories == e2?.calories;
   }
 
   @override
-  int hash(FitnessdataRecord? e) =>
-      const ListEquality().hash([e?.userID, e?.weight, e?.height]);
+  int hash(FitnessdataRecord? e) => const ListEquality()
+      .hash([e?.userID, e?.weight, e?.height, e?.steps, e?.calories]);
 
   @override
   bool isValidKey(Object? o) => o is FitnessdataRecord;

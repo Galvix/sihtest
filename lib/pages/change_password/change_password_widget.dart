@@ -4,14 +4,11 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'change_password_model.dart';
 export 'change_password_model.dart';
 
 class ChangePasswordWidget extends StatefulWidget {
-  const ChangePasswordWidget({Key? key}) : super(key: key);
+  const ChangePasswordWidget({super.key});
 
   @override
   _ChangePasswordWidgetState createState() => _ChangePasswordWidgetState();
@@ -73,7 +70,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
           'Change Password',
           style: FlutterFlowTheme.of(context).bodyMedium,
         ),
-        actions: [],
+        actions: const [],
         centerTitle: true,
         elevation: 0.0,
       ),
@@ -81,7 +78,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
             child: TextFormField(
               controller: _model.emailFieldController,
               focusNode: _model.emailFieldFocusNode,
@@ -99,21 +96,21 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: Color(0x00000000),
                     width: 2.0,
                   ),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: Color(0x00000000),
                     width: 2.0,
                   ),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: Color(0x00000000),
                     width: 2.0,
                   ),
@@ -122,7 +119,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                 filled: true,
                 fillColor: FlutterFlowTheme.of(context).customColor1,
                 contentPadding:
-                    EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 24.0, 24.0),
+                    const EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 24.0, 24.0),
               ),
               style: FlutterFlowTheme.of(context).bodyMedium,
               keyboardType: TextInputType.emailAddress,
@@ -131,7 +128,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -145,12 +142,12 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
             child: FFButtonWidget(
               onPressed: () async {
                 if (_model.emailFieldController.text.isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Text(
                         'Email required!',
                       ),
@@ -167,8 +164,8 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
               options: FFButtonOptions(
                 width: 230.0,
                 height: 50.0,
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).primary,
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: 'Lexend Deca',
@@ -177,7 +174,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       fontWeight: FontWeight.w500,
                     ),
                 elevation: 3.0,
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: Colors.transparent,
                   width: 1.0,
                 ),

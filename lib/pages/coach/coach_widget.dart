@@ -2,19 +2,14 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'coach_model.dart';
 export 'coach_model.dart';
 
 class CoachWidget extends StatefulWidget {
-  const CoachWidget({Key? key}) : super(key: key);
+  const CoachWidget({super.key});
 
   @override
   _CoachWidgetState createState() => _CoachWidgetState();
@@ -41,8 +36,8 @@ class _CoachWidgetState extends State<CoachWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 170.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 170.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -103,7 +98,7 @@ class _CoachWidgetState extends State<CoachWidget>
               context.pop();
             },
           ),
-          actions: [],
+          actions: const [],
           centerTitle: true,
           elevation: 0.0,
         ),
@@ -121,7 +116,7 @@ class _CoachWidgetState extends State<CoachWidget>
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                       child: Text(
                         'Coach',
                         style: FlutterFlowTheme.of(context).headlineMedium,
@@ -138,7 +133,7 @@ class _CoachWidgetState extends State<CoachWidget>
                   borderRadius: BorderRadius.circular(24.0),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(12.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,

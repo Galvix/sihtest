@@ -10,13 +10,11 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'profile_page_model.dart';
 export 'profile_page_model.dart';
 
 class ProfilePageWidget extends StatefulWidget {
-  const ProfilePageWidget({Key? key}) : super(key: key);
+  const ProfilePageWidget({super.key});
 
   @override
   _ProfilePageWidgetState createState() => _ProfilePageWidgetState();
@@ -38,8 +36,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 350.ms,
-          begin: Offset(40.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(40.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -51,8 +49,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 350.ms,
-          begin: Offset(-40.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(-40.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -126,7 +124,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                     ),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 40.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 40.0, 20.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -134,19 +132,19 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                         children: [
                           Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
-                            color: Color(0xFF30B2A3),
+                            color: const Color(0xFF30B2A3),
                             elevation: 0.0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(60.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(2.0),
+                              padding: const EdgeInsets.all(2.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Container(
                                   width: 70.0,
                                   height: 70.0,
                                   clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
@@ -159,7 +157,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -175,7 +173,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         .headlineMedium,
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 4.0, 0.0, 0.0),
                                     child: Text(
                                       valueOrDefault<String>(
@@ -195,7 +193,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -225,7 +223,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     .secondaryBackground,
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 12.0, 24.0, 12.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -248,9 +246,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       ),
                                       child: Stack(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         children: [
-                                          Align(
+                                          const Align(
                                             alignment:
                                                 AlignmentDirectional(0.95, 0.0),
                                             child: Padding(
@@ -264,7 +262,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             ),
                                           ),
                                           Align(
-                                            alignment: AlignmentDirectional(
+                                            alignment: const AlignmentDirectional(
                                                 -0.85, 0.0),
                                             child: Container(
                                               width: 36.0,
@@ -273,7 +271,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                boxShadow: [
+                                                boxShadow: const [
                                                   BoxShadow(
                                                     blurRadius: 4.0,
                                                     color: Color(0x430B0D0F),
@@ -322,7 +320,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                               decoration: BoxDecoration(
                                 color:
                                     FlutterFlowTheme.of(context).customColor1,
-                                boxShadow: [
+                                boxShadow: const [
                                   BoxShadow(
                                     blurRadius: 1.0,
                                     color: Color(0xFF1A1F24),
@@ -331,7 +329,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 ],
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 12.0, 24.0, 12.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -353,15 +351,15 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       width: 80.0,
                                       height: 40.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF1D2429),
+                                        color: const Color(0xFF1D2429),
                                         borderRadius:
                                             BorderRadius.circular(20.0),
                                       ),
                                       child: Stack(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         children: [
-                                          Align(
+                                          const Align(
                                             alignment:
                                                 AlignmentDirectional(-0.9, 0.0),
                                             child: Padding(
@@ -376,13 +374,13 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.9, 0.0),
+                                                const AlignmentDirectional(0.9, 0.0),
                                             child: Container(
                                               width: 36.0,
                                               height: 36.0,
                                               decoration: BoxDecoration(
-                                                color: Color(0xFF14181B),
-                                                boxShadow: [
+                                                color: const Color(0xFF14181B),
+                                                boxShadow: const [
                                                   BoxShadow(
                                                     blurRadius: 4.0,
                                                     color: Color(0x430B0D0F),
@@ -412,7 +410,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -465,7 +463,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 4.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -481,7 +479,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         borderColor: Colors.transparent,
                                         borderRadius: 30.0,
                                         buttonSize: 46.0,
-                                        icon: Icon(
+                                        icon: const Icon(
                                           Icons.chevron_right_rounded,
                                           color: Color(0xFF95A1AC),
                                           size: 20.0,
@@ -502,7 +500,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -535,7 +533,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 4.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -551,7 +549,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       borderColor: Colors.transparent,
                                       borderRadius: 30.0,
                                       buttonSize: 46.0,
-                                      icon: Icon(
+                                      icon: const Icon(
                                         Icons.chevron_right_rounded,
                                         color: Color(0xFF95A1AC),
                                         size: 20.0,
@@ -571,7 +569,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -604,7 +602,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 4.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -620,7 +618,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       borderColor: Colors.transparent,
                                       borderRadius: 30.0,
                                       buttonSize: 46.0,
-                                      icon: Icon(
+                                      icon: const Icon(
                                         Icons.chevron_right_rounded,
                                         color: Color(0xFF95A1AC),
                                         size: 20.0,
@@ -640,7 +638,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 40.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 40.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         context.pushNamed('Login');
@@ -650,9 +648,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                         width: 110.0,
                         height: 50.0,
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).grayLighter,
                         textStyle: FlutterFlowTheme.of(context).titleSmall,
                         elevation: 0.0,
