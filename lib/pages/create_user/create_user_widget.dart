@@ -348,6 +348,8 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                           photoUrl: _model.uploadedFileUrl,
                           userCity: _model.userCityController.text,
                         ));
+
+                        context.goNamed('HomePage');
                       },
                       text: 'Continue',
                       options: FFButtonOptions(
