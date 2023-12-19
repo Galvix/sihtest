@@ -61,9 +61,10 @@ class _LoginWidgetState extends State<LoginWidget> {
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).tertiary,
           image: DecorationImage(
-            fit: BoxFit.fitWidth,
+            fit: BoxFit.cover,
+            alignment: AlignmentDirectional(0.1, 0.0),
             image: Image.asset(
-              'assets/images/fire_achieved.png',
+              'assets/images/anastase-maragos-9dzWZQWZMdE-unsplash.jpg',
             ).image,
           ),
         ),
@@ -76,22 +77,21 @@ class _LoginWidgetState extends State<LoginWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 70.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        'assets/images/Running-bro.png',
-                        width: 160.0,
-                        height: 40.0,
-                        fit: BoxFit.fitWidth,
-                      ),
-                    ],
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 60.0),
+                  child: Text(
+                    'FitQuest',
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'League Spartan',
+                          color: Colors.white,
+                          fontSize: 48.0,
+                          fontWeight: FontWeight.w600,
+                        ),
                   ),
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       'Welcome!',
@@ -111,7 +111,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 24.0),
                         child: Text(
-                          'To the future of transportation',
+                          'To the future of fitness',
+                          textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .headlineSmall
                               .override(
@@ -136,8 +137,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                           focusNode: _model.emailAddressFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
-                            labelText: 'Email Address',
-                            labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  color: FlutterFlowTheme.of(context).accent3,
+                                ),
                             hintText: 'Enter your email here...',
                             hintStyle: FlutterFlowTheme.of(context).bodySmall,
                             enabledBorder: OutlineInputBorder(
@@ -198,7 +203,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                           focusNode: _model.passwordFocusNode,
                           obscureText: !_model.passwordVisibility,
                           decoration: InputDecoration(
-                            labelText: 'Password',
                             labelStyle: FlutterFlowTheme.of(context).bodySmall,
                             hintText: 'Enter your email here...',
                             hintStyle: FlutterFlowTheme.of(context).bodySmall,
@@ -353,7 +357,52 @@ class _LoginWidgetState extends State<LoginWidget> {
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [],
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 24.0, 0.0, 0.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 12.0, 0.0, 24.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    context.pushNamed('forgotPassword');
+                                  },
+                                  text: 'Forgot Password?',
+                                  options: FFButtonOptions(
+                                    width: 170.0,
+                                    height: 30.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Color(0x00FFFFFF),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Lexend Deca',
+                                          color: Colors.white,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                    elevation: 0.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(0.0),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

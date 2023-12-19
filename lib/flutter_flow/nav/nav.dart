@@ -104,9 +104,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => CreateUserWidget(),
         ),
         FFRoute(
-          name: 'onboarding',
-          path: '/onboarding',
-          builder: (context, params) => OnboardingWidget(),
+          name: 'forgotPassword',
+          path: '/forgotPassword',
+          builder: (context, params) => ForgotPasswordWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -121,6 +121,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'profilePage')
               : ProfilePageWidget(),
+        ),
+        FFRoute(
+          name: 'editProfile',
+          path: '/editProfile',
+          builder: (context, params) => EditProfileWidget(
+            userProfile: params.getParam(
+                'userProfile', ParamType.DocumentReference, false, ['users']),
+          ),
+        ),
+        FFRoute(
+          name: 'changePassword',
+          path: '/changePassword',
+          builder: (context, params) => ChangePasswordWidget(),
+        ),
+        FFRoute(
+          name: 'Coach',
+          path: '/coach',
+          builder: (context, params) =>
+              params.isEmpty ? NavBarPage(initialPage: 'Coach') : CoachWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

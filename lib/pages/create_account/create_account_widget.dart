@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -67,9 +66,10 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).tertiary,
           image: DecorationImage(
-            fit: BoxFit.fitWidth,
+            fit: BoxFit.cover,
+            alignment: AlignmentDirectional(0.1, 0.0),
             image: Image.asset(
-              'assets/images/bgFleet@2x.png',
+              'assets/images/anastase-maragos-9dzWZQWZMdE-unsplash.jpg',
             ).image,
           ),
         ),
@@ -82,30 +82,34 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 70.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        'assets/images/logoFleetWhite@3x.png',
-                        width: 160.0,
-                        height: 40.0,
-                        fit: BoxFit.fitWidth,
-                      ),
-                    ],
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 60.0),
+                  child: Text(
+                    'FitQuest',
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'League Spartan',
+                          color: Colors.white,
+                          fontSize: 48.0,
+                          fontWeight: FontWeight.w600,
+                        ),
                   ),
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'Get Started',
-                      style: FlutterFlowTheme.of(context).displaySmall.override(
-                            fontFamily: 'Outfit',
-                            color: FlutterFlowTheme.of(context).alternate,
-                            fontSize: 36.0,
-                          ),
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Text(
+                        'Get Started',
+                        textAlign: TextAlign.start,
+                        style:
+                            FlutterFlowTheme.of(context).displaySmall.override(
+                                  fontFamily: 'Outfit',
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  fontSize: 36.0,
+                                ),
+                      ),
                     ),
                   ],
                 ),
@@ -117,7 +121,8 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 24.0),
                         child: Text(
-                          'The future of transportation is at your finger tips.',
+                          'on your health journey!',
+                          textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .headlineSmall
                               .override(
@@ -416,7 +421,13 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                             return;
                           }
 
-                          context.goNamedAuth('createUser', context.mounted);
+                          await FitnessdataRecord.collection
+                              .doc()
+                              .set(createFitnessdataRecordData(
+                                userID: currentUserReference,
+                              ));
+
+                          context.pushNamedAuth('createUser', context.mounted);
                         },
                         text: 'Create',
                         options: FFButtonOptions(
@@ -450,138 +461,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 12.0, 0.0, 0.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              AutoSizeText(
-                                'Use a Social Platform to Login',
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.getFont(
-                                  'Lexend Deca',
-                                  color: Color(0xB2FFFFFF),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12.0,
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 12.0, 0.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 8.0, 0.0),
-                                      child: Card(
-                                        clipBehavior:
-                                            Clip.antiAliasWithSaveLayer,
-                                        color: FlutterFlowTheme.of(context)
-                                            .customColor1,
-                                        elevation: 3.0,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(50.0),
-                                        ),
-                                        child: Image.asset(
-                                          'assets/images/Book.png',
-                                          width: 50.0,
-                                          height: 50.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 8.0, 0.0),
-                                      child: Card(
-                                        clipBehavior:
-                                            Clip.antiAliasWithSaveLayer,
-                                        color: Color(0xFF090F13),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(50.0),
-                                        ),
-                                        child: Image.asset(
-                                          'assets/images/apple.png',
-                                          width: 50.0,
-                                          height: 50.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: Color(0xFF090F13),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(50.0),
-                                      ),
-                                      child: Image.asset(
-                                        'assets/images/Book_Copy_2.png',
-                                        width: 50.0,
-                                        height: 50.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 12.0, 0.0, 44.0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    await currentUserReference!
-                                        .update(createUsersRecordData(
-                                      displayName: 'Jane Williams',
-                                    ));
-                                    GoRouter.of(context).prepareAuthEvent();
-                                    final user = await authManager
-                                        .signInAnonymously(context);
-                                    if (user == null) {
-                                      return;
-                                    }
-
-                                    context.goNamedAuth(
-                                        'HomePage', context.mounted);
-                                  },
-                                  text: 'Continue as Guest',
-                                  options: FFButtonOptions(
-                                    width: 230.0,
-                                    height: 50.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: Color(0x3E000000),
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Outfit',
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                    elevation: 0.0,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(40.0),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
+                    children: [],
                   ),
                 ),
               ],

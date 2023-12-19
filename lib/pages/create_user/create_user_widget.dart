@@ -1,9 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -31,11 +33,17 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
     super.initState();
     _model = createModel(context, () => CreateUserModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
+    _model.nameController ??= TextEditingController();
+    _model.nameFocusNode ??= FocusNode();
 
-    _model.userCityController ??= TextEditingController();
-    _model.userCityFocusNode ??= FocusNode();
+    _model.ageController ??= TextEditingController();
+    _model.ageFocusNode ??= FocusNode();
+
+    _model.heightController ??= TextEditingController();
+    _model.heightFocusNode ??= FocusNode();
+
+    _model.weightController ??= TextEditingController();
+    _model.weightFocusNode ??= FocusNode();
   }
 
   @override
@@ -97,7 +105,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
               ),
             ),
             title: Text(
-              'Edit Profile',
+              'Create Profile',
               style: FlutterFlowTheme.of(context).titleSmall,
             ),
             actions: [],
@@ -204,7 +212,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                             }
                           }
                         },
-                        text: 'Change Photo',
+                        text: 'Upload Photo',
                         options: FFButtonOptions(
                           width: 130.0,
                           height: 40.0,
@@ -235,8 +243,8 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                   padding:
                       EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
                   child: TextFormField(
-                    controller: _model.textController1,
-                    focusNode: _model.textFieldFocusNode,
+                    controller: _model.nameController,
+                    focusNode: _model.nameFocusNode,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'Full Name',
@@ -280,20 +288,22 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                     validator:
-                        _model.textController1Validator.asValidator(context),
+                        _model.nameControllerValidator.asValidator(context),
                   ),
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
+                      EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
                   child: TextFormField(
-                    controller: _model.userCityController,
-                    focusNode: _model.userCityFocusNode,
+                    controller: _model.ageController,
+                    focusNode: _model.ageFocusNode,
+                    textCapitalization: TextCapitalization.none,
+                    textInputAction: TextInputAction.next,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'Your City',
+                      labelText: 'Age',
                       labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                      hintText: 'Where do you live?',
+                      hintText: 'Your age...',
                       hintStyle: FlutterFlowTheme.of(context).bodySmall,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -331,9 +341,179 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                           EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
+                    maxLength: 2,
+                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                    buildCounter: (context,
+                            {required currentLength,
+                            required isFocused,
+                            maxLength}) =>
+                        null,
+                    keyboardType: TextInputType.number,
                     validator:
-                        _model.userCityControllerValidator.asValidator(context),
+                        _model.ageControllerValidator.asValidator(context),
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ],
                   ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+                  child: FlutterFlowDropDown<String>(
+                    controller: _model.genderValueController ??=
+                        FormFieldController<String>(null),
+                    options: ['Male', 'Female', 'Other'],
+                    onChanged: (val) =>
+                        setState(() => _model.genderValue = val),
+                    width: double.infinity,
+                    height: 50.0,
+                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Outfit',
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                        ),
+                    hintText: 'Please select your gender',
+                    icon: Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 24.0,
+                    ),
+                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                    elevation: 2.0,
+                    borderColor: FlutterFlowTheme.of(context).primaryBackground,
+                    borderWidth: 2.0,
+                    borderRadius: 8.0,
+                    margin:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                    hidesUnderline: true,
+                    isOverButton: true,
+                    isSearchable: false,
+                    isMultiSelect: false,
+                  ),
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 0.0, 10.0, 16.0),
+                        child: TextFormField(
+                          controller: _model.heightController,
+                          focusNode: _model.heightFocusNode,
+                          textCapitalization: TextCapitalization.none,
+                          textInputAction: TextInputAction.next,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelText: 'Height',
+                            labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                            hintText: 'Your height in cms',
+                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            filled: true,
+                            fillColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 24.0, 0.0, 24.0),
+                          ),
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          keyboardType: TextInputType.number,
+                          validator: _model.heightControllerValidator
+                              .asValidator(context),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 0.0, 20.0, 16.0),
+                        child: TextFormField(
+                          controller: _model.weightController,
+                          focusNode: _model.weightFocusNode,
+                          textCapitalization: TextCapitalization.none,
+                          textInputAction: TextInputAction.next,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelText: 'Weight',
+                            labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                            hintText: 'Your weight  in kgs',
+                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            filled: true,
+                            fillColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 24.0, 0.0, 24.0),
+                          ),
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          keyboardType: TextInputType.number,
+                          validator: _model.weightControllerValidator
+                              .asValidator(context),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 Align(
                   alignment: AlignmentDirectional(0.0, 0.05),
@@ -342,14 +522,35 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        await createUserUsersRecord.reference
-                            .update(createUsersRecordData(
-                          displayName: _model.textController1.text,
-                          photoUrl: _model.uploadedFileUrl,
-                          userCity: _model.userCityController.text,
-                        ));
+                        await createUserUsersRecord.reference.update({
+                          ...createUsersRecordData(
+                            displayName: _model.nameController.text,
+                            photoUrl: _model.uploadedFileUrl,
+                            email: currentUserEmail,
+                            password: '',
+                            phoneNumber: '',
+                            uid: '',
+                            age: int.tryParse(_model.ageController.text),
+                            gender: _model.genderValue,
+                          ),
+                          ...mapToFirestore(
+                            {
+                              'created_time': FieldValue.serverTimestamp(),
+                            },
+                          ),
+                        });
 
-                        context.goNamed('HomePage');
+                        await FitnessdataRecord.collection
+                            .doc()
+                            .set(createFitnessdataRecordData(
+                              weight:
+                                  double.tryParse(_model.weightController.text),
+                              height:
+                                  int.tryParse(_model.heightController.text),
+                              userID: currentUserReference,
+                            ));
+
+                        context.pushNamed('HomePage');
                       },
                       text: 'Continue',
                       options: FFButtonOptions(

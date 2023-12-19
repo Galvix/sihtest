@@ -51,11 +51,6 @@ class ProductNameRecord extends FirestoreRecord {
   DocumentReference? get productUser => _productUser;
   bool hasProductUser() => _productUser != null;
 
-  // "productPayment" field.
-  DocumentReference? _productPayment;
-  DocumentReference? get productPayment => _productPayment;
-  bool hasProductPayment() => _productPayment != null;
-
   void _initializeFields() {
     _productName = snapshotData['productName'] as String?;
     _productImage = snapshotData['productImage'] as String?;
@@ -64,7 +59,6 @@ class ProductNameRecord extends FirestoreRecord {
     _productMileage = snapshotData['productMileage'] as String?;
     _productLocation = snapshotData['productLocation'] as LatLng?;
     _productUser = snapshotData['productUser'] as DocumentReference?;
-    _productPayment = snapshotData['productPayment'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -109,7 +103,6 @@ Map<String, dynamic> createProductNameRecordData({
   String? productMileage,
   LatLng? productLocation,
   DocumentReference? productUser,
-  DocumentReference? productPayment,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -120,7 +113,6 @@ Map<String, dynamic> createProductNameRecordData({
       'productMileage': productMileage,
       'productLocation': productLocation,
       'productUser': productUser,
-      'productPayment': productPayment,
     }.withoutNulls,
   );
 
@@ -138,8 +130,7 @@ class ProductNameRecordDocumentEquality implements Equality<ProductNameRecord> {
         e1?.productDefaulTemp == e2?.productDefaulTemp &&
         e1?.productMileage == e2?.productMileage &&
         e1?.productLocation == e2?.productLocation &&
-        e1?.productUser == e2?.productUser &&
-        e1?.productPayment == e2?.productPayment;
+        e1?.productUser == e2?.productUser;
   }
 
   @override
@@ -150,8 +141,7 @@ class ProductNameRecordDocumentEquality implements Equality<ProductNameRecord> {
         e?.productDefaulTemp,
         e?.productMileage,
         e?.productLocation,
-        e?.productUser,
-        e?.productPayment
+        e?.productUser
       ]);
 
   @override

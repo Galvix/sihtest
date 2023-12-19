@@ -51,20 +51,15 @@ class UsersRecord extends FirestoreRecord {
   String get uid => _uid ?? '';
   bool hasUid() => _uid != null;
 
-  // "bio" field.
-  String? _bio;
-  String get bio => _bio ?? '';
-  bool hasBio() => _bio != null;
+  // "age" field.
+  int? _age;
+  int get age => _age ?? 0;
+  bool hasAge() => _age != null;
 
-  // "product" field.
-  DocumentReference? _product;
-  DocumentReference? get product => _product;
-  bool hasProduct() => _product != null;
-
-  // "userCity" field.
-  String? _userCity;
-  String get userCity => _userCity ?? '';
-  bool hasUserCity() => _userCity != null;
+  // "gender" field.
+  String? _gender;
+  String get gender => _gender ?? '';
+  bool hasGender() => _gender != null;
 
   void _initializeFields() {
     _createdTime = snapshotData['created_time'] as DateTime?;
@@ -74,9 +69,8 @@ class UsersRecord extends FirestoreRecord {
     _photoUrl = snapshotData['photo_url'] as String?;
     _phoneNumber = snapshotData['phone_number'] as String?;
     _uid = snapshotData['uid'] as String?;
-    _bio = snapshotData['bio'] as String?;
-    _product = snapshotData['product'] as DocumentReference?;
-    _userCity = snapshotData['userCity'] as String?;
+    _age = castToType<int>(snapshotData['age']);
+    _gender = snapshotData['gender'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -120,9 +114,8 @@ Map<String, dynamic> createUsersRecordData({
   String? photoUrl,
   String? phoneNumber,
   String? uid,
-  String? bio,
-  DocumentReference? product,
-  String? userCity,
+  int? age,
+  String? gender,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -133,9 +126,8 @@ Map<String, dynamic> createUsersRecordData({
       'photo_url': photoUrl,
       'phone_number': phoneNumber,
       'uid': uid,
-      'bio': bio,
-      'product': product,
-      'userCity': userCity,
+      'age': age,
+      'gender': gender,
     }.withoutNulls,
   );
 
@@ -154,9 +146,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.photoUrl == e2?.photoUrl &&
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.uid == e2?.uid &&
-        e1?.bio == e2?.bio &&
-        e1?.product == e2?.product &&
-        e1?.userCity == e2?.userCity;
+        e1?.age == e2?.age &&
+        e1?.gender == e2?.gender;
   }
 
   @override
@@ -168,9 +159,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.photoUrl,
         e?.phoneNumber,
         e?.uid,
-        e?.bio,
-        e?.product,
-        e?.userCity
+        e?.age,
+        e?.gender
       ]);
 
   @override

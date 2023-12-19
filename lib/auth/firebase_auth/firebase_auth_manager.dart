@@ -291,7 +291,7 @@ class FirebaseAuthManager extends AuthManager
       }
       return userCredential == null
           ? null
-          : SIHTestFirebaseUser.fromUserCredential(userCredential);
+          : SihhcFirebaseUser.fromUserCredential(userCredential);
     } on FirebaseAuthException catch (e) {
       final errorMsg = e.message?.contains('auth/email-already-in-use') ?? false
           ? 'The email is already in use by a different account'
