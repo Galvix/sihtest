@@ -40,12 +40,18 @@ class FitnessdataRecord extends FirestoreRecord {
   double get calories => _calories ?? 0.0;
   bool hasCalories() => _calories != null;
 
+  // "bmi" field.
+  double? _bmi;
+  double get bmi => _bmi ?? 0.0;
+  bool hasBmi() => _bmi != null;
+
   void _initializeFields() {
     _userID = snapshotData['userID'] as DocumentReference?;
     _weight = castToType<double>(snapshotData['weight']);
     _height = castToType<int>(snapshotData['height']);
     _steps = castToType<int>(snapshotData['steps']);
     _calories = castToType<double>(snapshotData['calories']);
+    _bmi = castToType<double>(snapshotData['bmi']);
   }
 
   static CollectionReference get collection =>
@@ -88,6 +94,7 @@ Map<String, dynamic> createFitnessdataRecordData({
   int? height,
   int? steps,
   double? calories,
+  double? bmi,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -96,6 +103,7 @@ Map<String, dynamic> createFitnessdataRecordData({
       'height': height,
       'steps': steps,
       'calories': calories,
+      'bmi': bmi,
     }.withoutNulls,
   );
 
@@ -111,12 +119,13 @@ class FitnessdataRecordDocumentEquality implements Equality<FitnessdataRecord> {
         e1?.weight == e2?.weight &&
         e1?.height == e2?.height &&
         e1?.steps == e2?.steps &&
-        e1?.calories == e2?.calories;
+        e1?.calories == e2?.calories &&
+        e1?.bmi == e2?.bmi;
   }
 
   @override
   int hash(FitnessdataRecord? e) => const ListEquality()
-      .hash([e?.userID, e?.weight, e?.height, e?.steps, e?.calories]);
+      .hash([e?.userID, e?.weight, e?.height, e?.steps, e?.calories, e?.bmi]);
 
   @override
   bool isValidKey(Object? o) => o is FitnessdataRecord;

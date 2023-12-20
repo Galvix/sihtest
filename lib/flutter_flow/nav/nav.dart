@@ -137,6 +137,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Weight',
           path: '/weight',
           builder: (context, params) => const WeightWidget(),
+        ),
+        FFRoute(
+          name: 'Dashboard6',
+          path: '/dashboard6',
+          builder: (context, params) => const Dashboard6Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

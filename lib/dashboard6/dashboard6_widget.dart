@@ -1,26 +1,24 @@
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'weight_model.dart';
-export 'weight_model.dart';
+import 'dashboard6_model.dart';
+export 'dashboard6_model.dart';
 
-class WeightWidget extends StatefulWidget {
-  const WeightWidget({super.key});
+class Dashboard6Widget extends StatefulWidget {
+  const Dashboard6Widget({super.key});
 
   @override
-  _WeightWidgetState createState() => _WeightWidgetState();
+  _Dashboard6WidgetState createState() => _Dashboard6WidgetState();
 }
 
-class _WeightWidgetState extends State<WeightWidget>
+class _Dashboard6WidgetState extends State<Dashboard6Widget>
     with TickerProviderStateMixin {
-  late WeightModel _model;
+  late Dashboard6Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -57,7 +55,7 @@ class _WeightWidgetState extends State<WeightWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => WeightModel());
+    _model = createModel(context, () => Dashboard6Model());
   }
 
   @override
@@ -224,72 +222,6 @@ class _WeightWidgetState extends State<WeightWidget>
                             ],
                           ),
                         ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: SizedBox(
-                        width: double.infinity,
-                        height: 200.0,
-                        child: FlutterFlowLineChart(
-                          data: [
-                            FFLineChartData(
-                              xData: List.generate(
-                                  random_data.randomInteger(0, 0),
-                                  (index) => random_data.randomInteger(0, 10)),
-                              yData: List.generate(
-                                  random_data.randomInteger(0, 0),
-                                  (index) => random_data.randomInteger(0, 10)),
-                              settings: LineChartBarData(
-                                color: FlutterFlowTheme.of(context).primary,
-                                barWidth: 2.0,
-                                isCurved: true,
-                                preventCurveOverShooting: true,
-                                dotData: FlDotData(show: false),
-                                belowBarData: BarAreaData(
-                                  show: true,
-                                  color: const Color(0x4C4B39EF),
-                                ),
-                              ),
-                            ),
-                            FFLineChartData(
-                              xData: List.generate(
-                                  random_data.randomInteger(0, 0),
-                                  (index) => random_data.randomInteger(0, 200)),
-                              yData: List.generate(
-                                  random_data.randomInteger(0, 0),
-                                  (index) => random_data.randomInteger(0, 200)),
-                              settings: LineChartBarData(
-                                color: FlutterFlowTheme.of(context).secondary,
-                                barWidth: 2.0,
-                                isCurved: true,
-                                preventCurveOverShooting: true,
-                                dotData: FlDotData(show: false),
-                                belowBarData: BarAreaData(
-                                  show: true,
-                                  color: const Color(0x3239D2C0),
-                                ),
-                              ),
-                            )
-                          ],
-                          chartStylingInfo: ChartStylingInfo(
-                            enableTooltip: true,
-                            backgroundColor: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            showBorder: false,
-                          ),
-                          axisBounds: const AxisBounds(),
-                          xAxisLabelInfo: AxisLabelInfo(
-                            title: 'Last 30 Days',
-                            titleTextStyle:
-                                FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                          yAxisLabelInfo: AxisLabelInfo(
-                            title: 'Avg. Grade',
-                            titleTextStyle:
-                                FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                        ),
                       ),
                     ),
                   ],
