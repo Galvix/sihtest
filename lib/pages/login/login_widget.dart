@@ -204,7 +204,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           obscureText: !_model.passwordVisibility,
                           decoration: InputDecoration(
                             labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                            hintText: 'Enter your email here...',
+                            hintText: 'Enter your password here...',
                             hintStyle: FlutterFlowTheme.of(context).bodySmall,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(

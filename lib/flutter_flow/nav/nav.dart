@@ -140,6 +140,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/coach',
           builder: (context, params) =>
               params.isEmpty ? NavBarPage(initialPage: 'Coach') : CoachWidget(),
+        ),
+        FFRoute(
+          name: 'Weight',
+          path: '/weight',
+          builder: (context, params) => WeightWidget(),
+        ),
+        FFRoute(
+          name: 'Dashboard6',
+          path: '/dashboard6',
+          builder: (context, params) => Dashboard6Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -11,3 +11,5 @@ export '/pages/edit_profile/edit_profile_widget.dart' show EditProfileWidget;
 export '/pages/change_password/change_password_widget.dart'
     show ChangePasswordWidget;
 export '/pages/coach/coach_widget.dart' show CoachWidget;
+export '/pages/weight/weight_widget.dart' show WeightWidget;
+export '/dashboard6/dashboard6_widget.dart' show Dashboard6Widget;

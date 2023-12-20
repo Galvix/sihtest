@@ -548,6 +548,10 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                               height:
                                   int.tryParse(_model.heightController.text),
                               userID: currentUserReference,
+                              bmi: (int.parse(_model.weightController.text) *
+                                      10000) /
+                                  (int.parse(_model.heightController.text) *
+                                      int.parse(_model.heightController.text)),
                             ));
 
                         context.pushNamed('HomePage');
