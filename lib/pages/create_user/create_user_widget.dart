@@ -529,6 +529,7 @@ class _CreateUserWidgetState extends State<CreateUserWidget> {
                             uid: '',
                             age: int.tryParse(_model.ageController.text),
                             gender: _model.genderValue,
+                            coin: 1000,
                           ),
                           ...mapToFirestore(
                             {

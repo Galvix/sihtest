@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dashboard6_widget.dart' show Dashboard6Widget;
+import 'products_widget.dart' show ProductsWidget;
 import 'package:flutter/material.dart';
 
-class Dashboard6Model extends FlutterFlowModel<Dashboard6Widget> {
+class ProductsModel extends FlutterFlowModel<ProductsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

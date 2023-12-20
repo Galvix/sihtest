@@ -139,11 +139,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const WeightWidget(),
         ),
         FFRoute(
-          name: 'Dashboard6',
-          path: '/dashboard6',
-          builder: (context, params) => const Dashboard6Widget(),
+          name: 'products',
+          path: '/products',
+          builder: (context, params) => const ProductsWidget(),
+        ),
+        FFRoute(
+          name: 'payment',
+          path: '/payment',
+          builder: (context, params) => const PaymentWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
+      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {
