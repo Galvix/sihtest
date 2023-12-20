@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">613172470025</string>
+    <string name="google_api_key" translatable="false">AIzaSyCoG0oke7gPD7StWyiWQabksxaSE4I19fs</string>
+    <string name="google_app_id" translatable="false">1:613172470025:android:c0d7b73cef305e1ab573d8</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCoG0oke7gPD7StWyiWQabksxaSE4I19fs</string>
+    <string name="google_storage_bucket" translatable="false">sihapp-b313d.appspot.com</string>
+    <string name="project_id" translatable="false">sihapp-b313d</string>
+</resources>
